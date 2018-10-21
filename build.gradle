@@ -1,0 +1,28 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+}
+apply plugin: "maven"
+apply plugin: "kotlin"
+
+group 'com.github.tokyotechastro'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'com.ullink.slack', name: 'simpleslackapi', version: '1.2.0'
+    compile 'no.tornado:tornadofx:1.7.17'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+mainClassName = "com.github.tokyotechastro.slackbot.App"
